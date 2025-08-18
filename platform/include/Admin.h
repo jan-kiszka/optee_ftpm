@@ -48,12 +48,10 @@
 #define _ADMIN_H
 
 //**Includes
-#include <stdint.h>
+#include "Tpm.h"
 #include <trace.h>
-#include "swap.h"
-#include "TpmProfile.h"
+#include "TpmConfiguration/TpmProfile.h"
 #include "TpmSal.h"
-#include "TpmError.h"
 #include "GpMacros.h"
 
 // Parameter reference and types from ref impl headers

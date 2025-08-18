@@ -38,8 +38,8 @@
 #ifndef _PLATFORM_DATA_H_
 #define _PLATFORM_DATA_H_
 
-
-#include      "TpmProfile.h"
+#include      "Tpm.h"
+#include      "TpmConfiguration/TpmProfile.h"
 
 // From Cancel.c
 // Cancel flag.  It is initialized as FALSE, which indicate the command is not

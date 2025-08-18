@@ -36,12 +36,12 @@
 #ifndef    _PLATFORM_H_
 #define    _PLATFORM_H_
 
-#include "TpmBuildSwitches.h"
+#include "TpmConfiguration/TpmBuildSwitches.h"
 #include "BaseTypes.h"
 #include "TPMB.h"
 #include "MinMax.h"
 
-#include "TpmProfile.h"
+#include "TpmConfiguration/TpmProfile.h"
 
 #include "PlatformACT.h"
 #include "PlatformClock.h"

@@ -33,7 +33,8 @@
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 //** Includes
-#include "Platform.h"
+#include "Tpm.h"
+#include "PlatformACT.h"
 
 //** Global variables
 #define DEFINE_ACT(N)  ACT_DATA ACT_##N;

@@ -35,8 +35,9 @@
 //** Includes and Function Prototypes
 
 #include    "PlatformData.h"
-#include    "Platform_fp.h"
-#include    "_TPM_Init_fp.h"
+#include    "platform_interface/tpm_to_platform_interface.h"
+#include    "prototypes/platform_public_interface.h"
+#include    "platform_interface/prototypes/_TPM_Init_fp.h"
 
 //** Functions
 
@@ -107,7 +108,7 @@ _plat__Signal_PowerOff(
     )
 {
     // Prepare NV memory for power off
-    _plat__NVDisable();
+    _plat__NVDisable(NULL, 0);
 
     return;
 }

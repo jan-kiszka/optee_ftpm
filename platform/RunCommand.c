@@ -48,9 +48,10 @@
 
 //** Includes and locals
 #include "PlatformData.h"
-#include "Platform_fp.h"
+#include "platform_interface/tpm_to_platform_interface.h"
+#include "prototypes/platform_public_interface.h"
 #include <setjmp.h>
-#include "ExecCommand_fp.h"
+#include "platform_interface/prototypes/ExecCommand_fp.h"
 
 #include <tee_internal_api.h>
 #include <tee_internal_api_extensions.h>

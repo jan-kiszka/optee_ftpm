@@ -34,9 +34,6 @@
  */
 
 //**Includes
-// Force Global.h contents inclusion
-#define GLOBAL_C
-
 #include "Admin.h"
 
 //**Types, Structures, and Defines

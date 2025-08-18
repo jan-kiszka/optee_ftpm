@@ -38,7 +38,8 @@
 //
 //** Includes, Typedefs, Structures, and Defines
 #include "PlatformData.h"
-#include "Platform_fp.h"
+#include "platform_interface/tpm_to_platform_interface.h"
+#include "prototypes/platform_public_interface.h"
 
 //** Functions
 
