@@ -3,12 +3,12 @@ OP-TEE integration for the MS TPM 2.0 Reference Implementation (fTPM)
 
 ## fTPM TA
 The fTPM Trusted Application (TA) provides a secure firmware implementation
-of a TPM using the [MS reference
-implementation](https://github.com/microsoft/ms-tpm-20-ref).
+of a TPM using the [Official TPM 2.0 Reference
+Implementation](https://github.com/TrustedComputingGroup/TPM).
 
 The platform specific integration code is kept in this repository.
 
-This is a fork from the the [MS reference
+This is a fork from the [MS reference
 implementation](https://github.com/microsoft/ms-tpm-20-ref) sample
 [ARM32-FirmwareTPM](https://github.com/microsoft/ms-tpm-20-ref/tree/Historical_Samples/Samples/ARM32-FirmwareTPM)
 maintained to work with OP-TEE.
@@ -19,11 +19,10 @@ This TA is built as described in [Trusted
 Applications](https://optee.readthedocs.io/en/latest/building/trusted_applications.html)
 section in the [OP-TEE
 documentation](https://optee.readthedocs.io/en/latest/index.html) with the
-addition of `CFG_MS_TPM_20_REF` which must hold the path to a checked out
-copy of the [MS TPM 2.0 Reference
-Implementation](https://github.com/microsoft/ms-tpm-20-ref).
-You need to checkout commit (98b60a44aba79b15fcce1c0d1e46cf5918400f6a) of [MS TPM 2.0 Reference
-Implementation](https://github.com/microsoft/ms-tpm-20-ref)
+addition of `CFG_MS_TPM_20_REF`, which must hold the path to a
+copy of the [TPM 2.0 Reference
+Implementation](https://github.com/TrustedComputingGroup/TPM) checked out at
+tag V184 (bc29a21d44b01396223c152a4834e52318591770).
 
 ## Measured Boot support
 The fTPM Trusted Application includes support for Measured Boot. This
