@@ -29,7 +29,7 @@ jobs:
             -v /home/runner/work/optee_ftpm/optee_ftpm:/runner/optee_ftpm \
             -v /home/runner/work/ccache:/root/.cache/ccache \
             -w /root \
-            jforissier/optee_os_ci:qemu_check \
+            ghcr.io/${{ vars.CI_IMAGE_OWNER || 'OP-TEE' }}/optee_os/ci-image \
             bash -c '
               set -e -v
 
@@ -40,7 +40,7 @@ jobs:
               OPTEE_FTPM_TO_TEST=/runner/optee_ftpm
               cd ..
               TOP=/root/optee_repo_qemu_v8
-              /root/get_optee.sh qemu_v8 ${TOP}
+              /root/get_optee.sh qemu_v8 ${TOP} "${{ vars.MANIFEST_OWNER }}"
               mv ${TOP}/optee_ftpm ${TOP}/optee_ftpm_old
               ln -s ${OPTEE_FTPM_TO_TEST} ${TOP}/optee_ftpm
               cd ${TOP}/build
