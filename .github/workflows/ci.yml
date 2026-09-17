@@ -37,6 +37,7 @@ jobs:
               export BR2_CCACHE_DIR=/root/.cache/ccache
               export FORCE_UNSAFE_CONFIGURE=1
               export CFG_TEE_CORE_LOG_LEVEL=0
+              export DUMP_LOGS_ON_ERROR=1
               OPTEE_FTPM_TO_TEST=/runner/optee_ftpm
               cd ..
               TOP=/root/optee_repo_qemu_v8
