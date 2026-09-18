@@ -9,39 +9,33 @@ permissions:
 jobs:
   QEMUv8_check1:
     name: make check (QEMUv8)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    container: ghcr.io/${{ vars.CI_IMAGE_OWNER || 'op-tee' }}/optee_os/ci-check-image
     steps:
       - name: Checkout
         uses: actions/checkout@v7
       - name: Restore build cache
         uses: actions/cache@v6
         with:
-          path: /home/runner/work/ccache
+          path: /github/home/.cache/ccache
           key: qemuv8_check-cache-${{ github.sha }}
           restore-keys: |
             qemuv8_check-cache-
       - name: Check
         shell: bash
         run: |
-          docker run --rm \
-            -v /home/runner/work/optee_ftpm/optee_ftpm:/runner/optee_ftpm \
-            -v /home/runner/work/ccache:/root/.cache/ccache \
-            -w /root \
-            ghcr.io/${{ vars.CI_IMAGE_OWNER || 'op-tee' }}/optee_os/ci-build-image \
-            bash -c '
-              set -e -v
+          export LC_ALL=C
+          export BR2_CCACHE_DIR=/github/home/.cache/ccache
+          export CFG_TEE_CORE_LOG_LEVEL=0
+          export DUMP_LOGS_ON_ERROR=1
 
-              export LC_ALL=C
-              export BR2_CCACHE_DIR=/root/.cache/ccache
-              export FORCE_UNSAFE_CONFIGURE=1
-              export CFG_TEE_CORE_LOG_LEVEL=0
-              export DUMP_LOGS_ON_ERROR=1
+          CHECKOUT=$PWD
+          TOP=/optee_repo_qemu
+          cd $TOP
+          repo init -u "https://github.com/${{ vars.MANIFEST_OWNER || 'op-tee' }}/manifest.git" -m qemu_v8.xml
+          repo sync --force-sync
+          rm -rf $TOP/optee_ftpm
+          ln -s "${CHECKOUT}" ${TOP}/optee_ftpm
+          cd ${TOP}/build
 
-              TOP=/root/optee_repo_qemu
-              /root/get_optee.sh qemu_v8 ${TOP} "${{ vars.MANIFEST_OWNER }}"
-              rm -rf $TOP/optee_ftpm
-              ln -s /runner/optee_ftpm ${TOP}/optee_ftpm
-              cd ${TOP}/build
-
-              make -j$(nproc) check MEASURED_BOOT_FTPM=y CHECK_TESTS=xtest XTEST_ARGS=regression_1041
-            '
+          make -j$(nproc) check MEASURED_BOOT_FTPM=y CHECK_TESTS=xtest XTEST_ARGS=regression_1041
