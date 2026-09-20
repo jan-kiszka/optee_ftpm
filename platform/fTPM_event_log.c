@@ -174,7 +174,7 @@ static unsigned int process_event(unsigned int buf_index,
     uint32_t count;
     uint32_t event_size;
     uint16_t alg_id;
-    unsigned int digest_size;
+    unsigned int digest_size = 0;
     unsigned int i;
     unsigned char *response;
     uint32_t resplen;
