@@ -165,7 +165,7 @@ static void id_event_print(uint8_t **log_addr, size_t *log_size)
 static void event2_print(uint8_t **log_addr, size_t *log_size)
 {
 	uint32_t event_size, count;
-	size_t sha_size, digests_size = 0U;
+	size_t sha_size = 0U, digests_size = 0U;
 	void *ptr = *log_addr;
 	char str_buf[1024];
 
@@ -209,7 +209,7 @@ static void event2_print(uint8_t **log_addr, size_t *log_size)
 			snprintf(str_buf, 1024, "%s?\n", str_buf);
 			EMSG("Algorithm 0x%x not found\n",
 				((tpmt_ha *)ptr)->algorithm_id);
-			assert(true);
+			assert(false);
 		}
 		MSG("%s", str_buf);
 		str_buf[0] = 0;
