@@ -444,21 +444,6 @@ _plat__ACT_GetImplemented(
 
 //** From RunCommand.c
 
-//***_plat__RunCommand()
-// This version of RunCommand will set up a jum_buf and call ExecuteCommand(). If
-// the command executes without failing, it will return and RunCommand will return.
-// If there is a failure in the command, then _plat__Fail() is called and it will
-// longjump back to RunCommand which will call ExecuteCommand again. However, this
-// time, the TPM will be in failure mode so ExecuteCommand will simply build
-// a failure response and return.
-LIB_EXPORT void
-_plat__RunCommand(
-    uint32_t         requestSize,   // IN: command buffer size
-    unsigned char   *request,       // IN: command buffer
-    uint32_t        *responseSize,  // IN/OUT: response buffer size
-    unsigned char   **response      // IN/OUT: response buffer
-    );
-
 //***_plat__Fail()
 // This is the platform depended failure exit for the TPM.
 LIB_EXPORT NORETURN void
