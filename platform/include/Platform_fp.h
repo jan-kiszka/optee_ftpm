@@ -40,11 +40,6 @@
 #ifndef    _PLATFORM_FP_H_
 #define    _PLATFORM_FP_H_
 
-//** From EPS.c
-
-LIB_EXPORT void
-_plat__GetEPS(UINT16 Size, uint8_t *EndorsementSeed);
-
 //** From Cancel.c
 
 //***_plat__IsCanceled()

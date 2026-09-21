@@ -65,8 +65,6 @@ cflags-fTPM.c-y += -Wno-unused-variable
 cflags-fTPM.c-y += -Wno-incompatible-pointer-types
 cflags-fTPM.c-y += -Wno-pointer-arith
 cflags-fTPM.c-y += -Wno-format-truncation
-cflags-platform/EPS.c-y += -Wno-nested-externs
-cflags-platform/EPS.c-y += -Wno-implicit-function-declaration
 cflags-platform/AdminPPI.c-y += -Wno-missing-declarations
 cflags-platform/AdminPPI.c-y += -Wno-missing-prototypes
 cflags-platform/AdminPPI.c-y += -Wno-unknown-pragmas
@@ -93,7 +91,6 @@ srcs-y += platform/PlatformData.c
 srcs-y += platform/PPPlat.c
 srcs-y += platform/RunCommand.c
 srcs-y += platform/Unique.c
-srcs-y += platform/EPS.c
 srcs-y += platform/PlatformACT.c
 srcs-y += platform/fTPM_helpers.c
 
